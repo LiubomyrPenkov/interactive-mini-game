@@ -1,0 +1,9 @@
+<div class="game-board">
+  @for (cell of cells(); track cell.id) {
+    <div 
+      class="game-board__cell"
+      [class]="'game-board__cell--' + cell.status"
+      (click)="handleCellClick(cell)"
+    ></div>
+  }
+</div>

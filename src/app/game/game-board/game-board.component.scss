@@ -1,0 +1,59 @@
+@use 'variables' as *;
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: $gap-xxs;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: $game-board-bg;
+  padding: $gap-xs;
+  border-radius: $radius-sm;
+
+  &__cell {
+    aspect-ratio: 1;
+    width: 100%;
+    cursor: pointer;
+    border-radius: $radius-xs;
+    background-color: $game-color-idle;
+    transition: background-color 180ms ease-out;
+    will-change: filter, box-shadow;
+    pointer-events: none;
+
+    &--active { 
+      pointer-events: all;
+      background-color: $game-color-active; 
+    }
+
+    &--scored { 
+      background-color: $game-color-success;
+      animation: score-bright 200ms ease-out;
+    }
+
+    &--missed { 
+      background-color: $game-color-fail;
+      filter: brightness(0.9);
+      animation: miss-shake 180ms ease-out;
+    }
+  }
+}
+
+@keyframes score-bright {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.35);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes miss-shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-0.8px); }
+  50% { transform: translateX(0.8px); }
+  75% { transform: translateX(-0.8px); }
+  100% { transform: translateX(0); }
+}

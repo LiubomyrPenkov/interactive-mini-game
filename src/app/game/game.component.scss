@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+.game {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: $gap-lg;
+  text-align: center;
+
+  @media (max-width: 600px) {
+    padding: $gap-md;
+  }
+
+  &__title {
+    margin-bottom: $gap-xl;
+    color: $game-text-color;
+
+    @media (max-width: 600px) {
+      margin-bottom: $gap-md;
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<div class="game-controls">
+  <form class="game-controls__form" (submit)="onStart($event)">
+    <mat-form-field class="game-controls__field" appearance="outline">
+      <mat-label>Time (ms)</mat-label>
+      <input 
+        matInput
+        type="number" 
+        [formControl]="timeControl"
+        min="100"
+      />
+      @if (timeControl.hasError('required')) {
+        <mat-error>Time limit is required</mat-error>
+      }
+      @if (timeControl.hasError('min')) {
+        <mat-error>Minimum 100ms</mat-error>
+      }
+    </mat-form-field>
+
+    <button 
+      mat-flat-button
+      class="game-controls__button game-controls__button--primary"
+      color="primary"
+      type="submit"
+    >{{ gameStatus() === GameStatus.PLAYING ? 'Restart Game' : 'Start Game' }}</button>
+
+    @if (gameStatus() === GameStatus.PLAYING) {
+      <button
+        mat-flat-button
+        class="game-controls__button game-controls__button--danger"
+        type="button"
+        (click)="onEnd()"
+      >End Game</button>
+    }
+  </form>
+</div>

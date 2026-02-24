@@ -1,0 +1,25 @@
+<h2 mat-dialog-title class="game-result-dialog__title">Game Over</h2>
+<mat-dialog-content class="game-result-dialog__content">
+  <div class="game-result-dialog__container">
+    @if (data.playerScore >= WINNING_SCORE) {
+      <div class="game-result-dialog__status game-result-dialog__status--win">
+        <span class="game-result-dialog__emoji">🎉</span>
+        <span class="game-result-dialog__text">You Won!</span>
+      </div>
+    }
+    @if (data.computerScore >= WINNING_SCORE) {
+      <div class="game-result-dialog__status game-result-dialog__status--loss">
+        <span class="game-result-dialog__emoji">🤖</span>
+        <span class="game-result-dialog__text">Computer Won</span>
+      </div>
+    }
+    
+    <app-score-board
+      [playerScore]="data.playerScore"
+      [computerScore]="data.computerScore"
+    ></app-score-board>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="primary" (click)="close()">Close</button>
+</mat-dialog-actions>

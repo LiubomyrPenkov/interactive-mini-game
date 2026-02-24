@@ -1,0 +1,51 @@
+@use 'variables' as *;
+
+.game-result-dialog {
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: $gap-lg;
+  }
+
+  &__content {
+    padding-bottom: $gap-lg;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap-xl;
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap-sm;
+    
+    &--win .game-result-dialog__text { color: $game-color-success; }
+    &--loss .game-result-dialog__text { color: $game-color-fail; }
+  }
+  
+  &__emoji {
+    font-size: 64px;
+    line-height: 1;
+
+    @media (max-width: 600px) {
+      font-size: 48px;
+    }
+  }
+  
+  &__text {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
+  }
+}

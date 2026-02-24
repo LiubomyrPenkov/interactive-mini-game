@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+
+$app-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  typography: (
+    plain-family: (Roboto, 'Helvetica Neue', Arial, sans-serif),
+    brand-family: (Roboto, 'Helvetica Neue', Arial, sans-serif),
+  ),
+  density: (
+    scale: 0,
+  ),
+));

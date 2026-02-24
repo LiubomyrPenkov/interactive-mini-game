@@ -1,0 +1,19 @@
+<div class="game">
+  <h1 class="game__title">Interactive Mini-Game</h1>
+  
+  <app-game-controls 
+    [gameStatus]="gameStatus()"
+    (start)="onStart($event)"
+    (end)="onEnd()"
+  ></app-game-controls>
+
+  <app-score-board
+    [playerScore]="playerScore()"
+    [computerScore]="computerScore()"
+  ></app-score-board>
+
+  <app-game-board
+    [cells]="cells()"
+    (cellClick)="onCellClick($event)"
+  ></app-game-board>
+</div>
